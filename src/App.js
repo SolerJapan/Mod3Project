@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
 import './bootstrap.css';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import QuizApp from './components/main/QuizApp';
 //import AboutPage from "./Pages/AboutPage";
 
 
 
-class App extends React.Component {
+class App extends Component {
 
   render(){
 
