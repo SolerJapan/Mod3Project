@@ -7,7 +7,7 @@ class QuizBaseComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            todos :[],
+            quizs :[],
             message : null
         }
         this.updateQuizClicked = this.updateQuizClicked.bind(this)
@@ -35,11 +35,11 @@ class QuizBaseComponent extends Component {
 
     refreshQuiz(){
         // let username = AuthenticationService.getLoggedInUserName()
-        // TodoDataService.retrieveAllTodos(username)
+        // QuizDataService.retrieveAllQuizs(username)
         // .then(
         //     response => {
         //         //console.log(response)
-        //         this.setState({todos : response.data})
+        //         this.setState({Quizs : response.data})
         //     }
         // )
     }
@@ -47,7 +47,7 @@ class QuizBaseComponent extends Component {
     deleteQuizClicked(id){
         // let username = AuthenticationService.getLoggedInUserName()
         // //console.log(id + " " + username); 
-        // TodoDataService.deleteTodo(username, id)
+        // QuizDataService.deleteQuiz(username, id)
         //  .then (
         //      response => {
         //          this.setState({message : `Delete of todo ${id} successful`})
@@ -65,14 +65,14 @@ class QuizBaseComponent extends Component {
     updateQuizClicked(id){
         
         //console.log("update " + id); 
-        // this.props.history.push(`/todos/${id}`)
+        // this.props.history.push(`/Quizs/${id}`)
         // let username = AuthenticationService.getLoggedInUserName()
         // //console.log(id + " " + username); 
-        // TodoDataService.deleteTodo(username, id)
+        // QuizDataService.deleteQuiz(username, id)
         //  .then (
         //      response => {
-        //          this.setState({message : `Delete of todo ${id} successful`})
-        //          this.refreshTodos();
+        //          this.setState({message : `Delete of Quiz ${id} successful`})
+        //          this.refreshQuizs();
         //      }
         //  )
     }
