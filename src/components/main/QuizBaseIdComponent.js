@@ -17,6 +17,7 @@ class QuizBaseIdComponent extends Component{
             Answer3 : '',
             Answer4 : '',
             AnswerC : '',
+            
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -136,33 +137,41 @@ class QuizBaseIdComponent extends Component{
                             {
                                 (props) => (
                                     <Form>
-                                        <ErrorMessage name="description" component="div" 
+                                        <ErrorMessage name="Question" component="div" 
                                             className="alert alert-warning"/>
-                                        <ErrorMessage name="targetDate" component="div" 
+                                        <ErrorMessage name="Answer1" component="div" 
                                             className="alert alert-warning"/>
+                                        <ErrorMessage name="Answer2" component="div" 
+                                            className="alert alert-warning"/>
+                                        <ErrorMessage name="Answer3" component="div" 
+                                            className="alert alert-warning"/>
+                                        <ErrorMessage name="Answer4" component="div" 
+                                            className="alert alert-warning"/>
+                                        <ErrorMessage name="AnswerC" component="div" 
+                                            className="alert alert-warning"/>                
                                        <fieldset className="form-group">
                                             <label>Question</label>
                                             <Field className="form-control" type="text" name="Question"/>   
                                         </fieldset> 
                                         <fieldset className="form-group">
                                             <label>Answer1 </label>
-                                            <Field className="form-control" type="date" name="Answer1"/>   
+                                            <Field className="form-control" type="text" name="Answer1"/>   
                                         </fieldset>
                                         <fieldset className="form-group">
                                             <label>Answer2 </label>
-                                            <Field className="form-control" type="date" name="Answer2"/>   
+                                            <Field className="form-control" type="text" name="Answer2"/>   
                                         </fieldset> 
                                         <fieldset className="form-group">
                                             <label>Answer3 </label>
-                                            <Field className="form-control" type="date" name="Answer3"/>   
+                                            <Field className="form-control" type="text" name="Answer3"/>   
                                         </fieldset> 
                                         <fieldset className="form-group">
                                             <label>Answer4 </label>
-                                            <Field className="form-control" type="date" name="Answer4"/>   
+                                            <Field className="form-control" type="text" name="Answer4"/>   
                                         </fieldset> 
                                         <fieldset className="form-group">
                                             <label>AnswerC </label>
-                                            <Field className="form-control" type="date" name="AnswerC"/>   
+                                        <fieldset className="form-control" type="text" name="AnswerC"/>   
                                         </fieldset>  
                                         <button className="btn btn-success" type="submit">Save</button>
                                     </Form>

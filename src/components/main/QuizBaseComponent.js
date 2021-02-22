@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+import QuizDataService from '../../api/quiz/QuizDataService'
 import AuthenticationService from './AuthenticationService'
 import moment from 'moment';
 
@@ -28,44 +29,44 @@ class QuizBaseComponent extends Component {
     }
 
     componentDidMount(){
-        // console.log('componentDidMount')
-        // this.refreshQuiz();
-        // console.log(this.state)
+         console.log('componentDidMount')
+         this.refreshQuiz();
+         console.log(this.state)
     }
 
     refreshQuiz(){
-        // let username = AuthenticationService.getLoggedInUserName()
-        // QuizDataService.retrieveAllQuizs(username)
-        // .then(
+         let username = AuthenticationService.getLoggedInUserName()
+         //QuizDataService.retrieveAllQuizs(username)
+         //.then(
         //     response => {
-        //         //console.log(response)
-        //         this.setState({Quizs : response.data})
-        //     }
+         //        console.log(response)
+         //        this.setState({Quizs : response.data})
+         //    }
         // )
     }
 
     deleteQuizClicked(id){
-        // let username = AuthenticationService.getLoggedInUserName()
-        // //console.log(id + " " + username); 
-        // QuizDataService.deleteQuiz(username, id)
-        //  .then (
-        //      response => {
-        //          this.setState({message : `Delete of todo ${id} successful`})
-        //          this.refreshTodos();
-        //      }
-        //  )
+        let username = AuthenticationService.getLoggedInUserName()
+        console.log(id + " " + username); 
+        QuizDataService.deleteQuiz(username, id)
+            .then (
+            response => {
+                    this.setState({message : `Delete of todo ${id} successful`})
+                    this.refreshTodos();
+                }
+            )
     }
 
     addQuizClicked(){
         //console.log('update' + id)
-        //this.props.history.push(`/todos/-1`)
+        this.props.history.push(`/Quizs/-1`)
     }
 
 
     updateQuizClicked(id){
         
-        //console.log("update " + id); 
-        // this.props.history.push(`/Quizs/${id}`)
+        console.log("update " + id); 
+        this.props.history.push(`/Quizs/${id}`)
         // let username = AuthenticationService.getLoggedInUserName()
         // //console.log(id + " " + username); 
         // QuizDataService.deleteQuiz(username, id)
