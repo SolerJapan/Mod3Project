@@ -83,37 +83,44 @@ class QuizBaseComponent extends Component {
              <h1>List Quiz</h1>
            
             <div className ="container">
-                {/* <table className = "table">
+                <table className = "table">
                     <thead>
                         <tr>
-                            <th>description</th>                  
-                            <th>Completed?</th>
-                            <th>target date</th>
+                            <th>Question</th>                  
+                            <th>Answer1</th>
+                            <th>Answer2</th>
+                            <th>Answer3</th>
+                            <th>Answer4</th>
+                            <th>AnswerC</th>
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            this.state.todos.map(
-                            todo =>  
-                            <tr key={todo.id}>                               
-                                <td>{todo.description}</td>
-                                <td>{todo.done.toString()}</td>
-                                <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
+                   {/*      {
+                            this.state.quizs.map(
+                            quiz =>  
+                            <tr key={quiz.id}>                               
+                                <td>{quiz.Question}</td>
+                                <td>{quiz.Answer1}</td>
+                                <td>{quiz.Answer2}</td>
+                                <td>{quiz.Answer3}</td>
+                                <td>{quiz.Answer4}</td>
+                                <td>{quiz.AnswerC}</td>
                                 <td><button className="btn btn-success" onClick={
-                                    () => this.updateTodoClicked(todo.id)}>Update</button></td>
+                                    () => this.updatequizClicked(quiz.id)}>Update</button></td>
                                 <td><button className="btn btn-warning" onClick={
-                                    () => this.deleteTodoClicked(todo.id)}>Delete</button></td>
+                                    () => this.deletequizClicked(quiz.id)}>Delete</button></td>
                             </tr>
                             )
-                        }
                     </tbody>
-                </table>
+                        }*/}
+                    </tbody>
+                </table>  
                 <div className="row">
-                    <button className="btn btn-success" onClick={this.addTodoClicked}>Add</button>
-                </div> */}
-            </div>            
+                    <button className="btn btn-success" onClick={this.addQuizClicked}>Add</button>
+                </div>
+            </div>          
         </div> 
     }
 }
