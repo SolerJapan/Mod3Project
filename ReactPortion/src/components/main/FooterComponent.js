@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-
+//this component pops up on the bottom of all pages
 class FooterComponent extends Component{
     render(){
         return(

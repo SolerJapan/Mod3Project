@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 //import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 //import AuthenticationService from './AuthenticationService';
 
+//component which confirms one has been logged out
 class LogoutComponent extends Component{
     render(){
         return(

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-
 import QuizDataService from '../../api/quiz/QuizDataService'
 import AuthenticationService from './AuthenticationService'
-import moment from 'moment';
+//import moment from 'moment';
 
+//this links to the quiz database where questions 
+//can be added or removed.
 class QuizBaseComponent extends Component {
     constructor(props){
         super(props)
@@ -13,12 +14,12 @@ class QuizBaseComponent extends Component {
         }
         this.updateQuizClicked = this.updateQuizClicked.bind(this)
         this.deleteQuizClicked = this.deleteQuizClicked.bind(this)
-        this.refreshQuiz = this.refreshQuiz.bind(this)
+        this.refreshQuizs = this.refreshQuizs.bind(this)
         this.addQuizClicked = this.addQuizClicked.bind(this)
     }
-
+    //only to tell on console if data was unmounted
     componentWillUnmount(){
-        console.log('componentDidunMount')
+        console.log('componentunMounted')
     }
 
     shouldComponentUpdate(nextProps, nextState){
@@ -27,62 +28,53 @@ class QuizBaseComponent extends Component {
         console.log(nextState)
         return true
     }
-
+    //only to tell on console if data was mounted and refreshes data
     componentDidMount(){
          console.log('componentDidMount')
-         this.refreshQuiz();
+         this.refreshQuizs();
          console.log(this.state)
     }
-
-    refreshQuiz(){
+    //refreshes and retieves all quizes from database based on username
+    refreshQuizs(){
          let username = AuthenticationService.getLoggedInUserName()
-         //QuizDataService.retrieveAllQuizs(username)
-         //.then(
-        //     response => {
-         //        console.log(response)
-         //        this.setState({Quizs : response.data})
-         //    }
-        // )
+         QuizDataService.retrieveAllQuizs(username)
+         .then(
+             response => {
+                 console.log(response)
+                 this.setState({quizs : response.data})
+             }
+         )
     }
-
+    //deletes selected quiz from database based on username and id
     deleteQuizClicked(id){
         let username = AuthenticationService.getLoggedInUserName()
-        console.log(id + " " + username); 
+        //console.log(id + " " + username); 
         QuizDataService.deleteQuiz(username, id)
             .then (
             response => {
                     this.setState({message : `Delete of todo ${id} successful`})
-                    this.refreshTodos();
+                    this.refreshQuizs();
                 }
             )
     }
-
+    //adds new quiz into database
     addQuizClicked(){
         //console.log('update' + id)
-        this.props.history.push(`/Quizs/-1`)
+        this.props.history.push(`/quizs/-1`)
     }
 
-
+    //updates selected quiz based on id
     updateQuizClicked(id){
         
         console.log("update " + id); 
-        this.props.history.push(`/Quizs/${id}`)
-        // let username = AuthenticationService.getLoggedInUserName()
-        // //console.log(id + " " + username); 
-        // QuizDataService.deleteQuiz(username, id)
-        //  .then (
-        //      response => {
-        //          this.setState({message : `Delete of Quiz ${id} successful`})
-        //          this.refreshQuizs();
-        //      }
-        //  )
+        this.props.history.push(`/quizs/${id}`)
     }
 
 
     render(){
         return <div>
              <h1>List Quiz</h1>
-           
+             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
             <div className ="container">
                 <table className = "table">
                     <thead>
@@ -98,24 +90,23 @@ class QuizBaseComponent extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                   {/*      {
+                        {
                             this.state.quizs.map(
                             quiz =>  
                             <tr key={quiz.id}>                               
-                                <td>{quiz.Question}</td>
-                                <td>{quiz.Answer1}</td>
-                                <td>{quiz.Answer2}</td>
-                                <td>{quiz.Answer3}</td>
-                                <td>{quiz.Answer4}</td>
-                                <td>{quiz.AnswerC}</td>
+                                <td>{quiz.question}</td>
+                                <td>{quiz.answer1}</td>
+                                <td>{quiz.answer2}</td>
+                                <td>{quiz.answer3}</td>
+                                <td>{quiz.answer4}</td>
+                                <td>{quiz.answerC}</td>
                                 <td><button className="btn btn-success" onClick={
-                                    () => this.updatequizClicked(quiz.id)}>Update</button></td>
+                                    () => this.updateQuizClicked(quiz.id)}>Update</button></td>
                                 <td><button className="btn btn-warning" onClick={
-                                    () => this.deletequizClicked(quiz.id)}>Delete</button></td>
+                                    () => this.deleteQuizClicked(quiz.id)}>Delete</button></td>
                             </tr>
                             )
-                    </tbody>
-                        }*/}
+                        }                       
                     </tbody>
                 </table>  
                 <div className="row">

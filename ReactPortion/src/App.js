@@ -5,7 +5,7 @@ import QuizApp from './components/main/QuizApp';
 //import AboutPage from "./Pages/AboutPage";
 
 
-
+//main app call
 class App extends Component {
 
   render(){

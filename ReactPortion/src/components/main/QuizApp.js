@@ -4,12 +4,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import LoginComponent from './LoginComponent';
 import LogoutComponent from './LogoutComponent';
+
 import FooterComponent from './FooterComponent';
 import HeaderComponent from './HeaderComponent';
 import MainComponent from './MainComponent';
 import ErrorComponent from './ErrorComponent';
 import QuizBaseComponent from './QuizBaseComponent';
+import QuizBaseIdComponent from './QuizBaseIdComponent';
 
+//main component which sets all the links and routes
+//as well as sets all the components
 class QuizApp extends Component{
     render(){
         return (
@@ -20,8 +24,9 @@ class QuizApp extends Component{
                       <Switch>
                       <Route path="/" exact component={LoginComponent}/>
                       <Route path="/login" component={LoginComponent}/>
-                      <AuthenticatedRoute path="/main/:name" component={MainComponent}/>
-                      <AuthenticatedRoute path="/quizbase" component={QuizBaseComponent}/>
+                      <AuthenticatedRoute path="/main/" component={MainComponent}/>
+                      <AuthenticatedRoute path="/quizs/:id" component={QuizBaseIdComponent}/>
+                      <AuthenticatedRoute path="/quizs" component={QuizBaseComponent}/>                     
                       <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
 
                       <Route component={ErrorComponent}/>
