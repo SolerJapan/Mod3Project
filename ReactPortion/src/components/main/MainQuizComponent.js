@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import classnames from 'classnames';
 import { API_URL }  from '../../Constants';
 import QuizDataService from '../../api/quiz/QuizDataService'
 import AuthenticationService from './AuthenticationService'
@@ -55,8 +56,6 @@ class MainQuizComponent extends Component {
     let { currentQuestionIndex } = this.state;   
     console.log(currentQuestionIndex)
     if (this.state.quizs.length>0) {
-        console.log("inside")
-        console.log(currentQuestion)
         currentQuestion = quizs[currentQuestionIndex];
         console.log(currentQuestion)
         nextQuestion = quizs[currentQuestionIndex + 1];
@@ -89,7 +88,7 @@ class MainQuizComponent extends Component {
             if (this.state.nextQuestion === undefined) {
                 this.endGame();
             } else {
-                this.displayQuestions(this.state.quizs, this.state.currentQuestion, this.state.nextQuestion);
+                this.displayQuizs(this.state.quizs, this.state.currentQuestion, this.state.nextQuestion);
             }
         });
     }
@@ -103,9 +102,17 @@ class MainQuizComponent extends Component {
             if (this.state.nextQuestion === undefined) {
                 this.endGame();
             } else {
-                this.displayQuestions(this.state.quizs, this.state.currentQuestion, this.state.nextQuestion);
+                this.displayQuizs(this.state.quizs, this.state.currentQuestion, this.state.nextQuestion);
             }
         });
+    }
+
+    handleOptionClick = (e) => {
+        if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
+            this.correctAnswer();
+        } else {
+            this.wrongAnswer();
+        }
     }
 
     handleButtonClick = (e) => {
@@ -114,22 +121,24 @@ class MainQuizComponent extends Component {
                 this.handleNextButtonClick();
                 break;
 
-            case 'previous-button':
-                this.handlePreviousButtonClick();
-                break;
-
-            case 'quit-button':
-                this.handleQuitButtonClick();
-                break;
-
             default:
                 break;
         }
         
     };
 
+    handleNextButtonClick = () => {
+        if (this.state.nextQuestion !== undefined) {
+            this.setState(prevState => ({
+                currentQuestionIndex: prevState.currentQuestionIndex + 1
+            }), () => {
+                this.displayQuizs(this.state.quizs, this.state.currentQuestion, this.state.nextQuestion);
+            });
+        }
+    };
+
     handleDisableButton = () => {
-              
+
         if (this.state.nextQuestion === undefined || this.state.currentQuestionIndex + 1 === this.state.numberOfQuestions) {
             this.setState({
                 nextButtonDisabled: true
@@ -149,12 +158,10 @@ class MainQuizComponent extends Component {
             numberOfQuestions: state.numberOfQuestions,
             numberOfAnsweredQuestions: state.correctAnswers + state.wrongAnswers,
             correctAnswers: state.correctAnswers,
-            wrongAnswers: state.wrongAnswers,
-            fiftyFiftyUsed: 2 - state.fiftyFifty,
-            hintsUsed: 5 - state.hints
+            wrongAnswers: state.wrongAnswers
         };
         setTimeout(() => {
-            this.props.history.push('/play/quizSummary', playerStats);
+            this.props.history.push('/main/', playerStats);
         }, 1000);
     }
 
@@ -169,22 +176,13 @@ class MainQuizComponent extends Component {
                 <div className="MainQuiz">
                     <div className="QTitle">{currentQuestion.question}.</div>
                     <div className="answers-container">
-                        <p className="answer">{currentQuestion.answer1}</p> 
-                        <p className="answer">{currentQuestion.answer2}</p>                   
+                        <p onClick={this.handleOptionClick} className="answer">{currentQuestion.answer1}</p> 
+                        <p onClick={this.handleOptionClick} className="answer">{currentQuestion.answer2}</p>                   
                     </div>
                     <div className="answers-container">
-                        <p className="answer">{currentQuestion.answer3}</p>
-                        <p className="answer">{currentQuestion.answer4}</p>
+                        <p onClick={this.handleOptionClick} className="answer">{currentQuestion.answer3}</p>
+                        <p onClick={this.handleOptionClick} className="answer">{currentQuestion.answer4}</p>
                     </div>
-
-                    <div className="button-container">
-                        
-                        <button> 
-                        Next
-                        </button>
-                        
-                    </div>
-
                 </div>
             </>    
         )
