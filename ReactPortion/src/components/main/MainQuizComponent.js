@@ -108,6 +108,56 @@ class MainQuizComponent extends Component {
         });
     }
 
+    handleButtonClick = (e) => {
+        switch (e.target.id) {
+            case 'next-button':
+                this.handleNextButtonClick();
+                break;
+
+            case 'previous-button':
+                this.handlePreviousButtonClick();
+                break;
+
+            case 'quit-button':
+                this.handleQuitButtonClick();
+                break;
+
+            default:
+                break;
+        }
+        
+    };
+
+    handleDisableButton = () => {
+              
+        if (this.state.nextQuestion === undefined || this.state.currentQuestionIndex + 1 === this.state.numberOfQuestions) {
+            this.setState({
+                nextButtonDisabled: true
+            });
+        } else {
+            this.setState({
+                nextButtonDisabled: false
+            });
+        }
+    }
+
+    endGame = () => {
+        alert('Quiz has eneded!');
+        const { state } = this;
+        const playerStats = {
+            score: state.score,
+            numberOfQuestions: state.numberOfQuestions,
+            numberOfAnsweredQuestions: state.correctAnswers + state.wrongAnswers,
+            correctAnswers: state.correctAnswers,
+            wrongAnswers: state.wrongAnswers,
+            fiftyFiftyUsed: 2 - state.fiftyFifty,
+            hintsUsed: 5 - state.hints
+        };
+        setTimeout(() => {
+            this.props.history.push('/play/quizSummary', playerStats);
+        }, 1000);
+    }
+
     render(){
 
         const { currentQuestion, currentQuestionIndex, 
