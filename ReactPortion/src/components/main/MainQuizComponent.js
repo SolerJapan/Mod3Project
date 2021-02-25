@@ -161,7 +161,7 @@ class MainQuizComponent extends Component {
             wrongAnswers: state.wrongAnswers
         };
         setTimeout(() => {
-            this.props.history.push('/main/', playerStats);
+            this.props.history.push('/QuizResults/', playerStats);
         }, 1000);
     }
 

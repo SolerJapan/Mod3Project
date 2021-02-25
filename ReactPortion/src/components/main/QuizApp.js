@@ -11,6 +11,7 @@ import MainComponent from './MainComponent';
 import ErrorComponent from './ErrorComponent';
 import QuizBaseComponent from './QuizBaseComponent';
 import QuizBaseIdComponent from './QuizBaseIdComponent';
+import QuizResults from './QuizResults';
 
 //main component which sets all the links and routes
 //as well as sets all the components
@@ -24,6 +25,7 @@ class QuizApp extends Component{
                       <Switch>
                       <Route path="/" exact component={LoginComponent}/>
                       <Route path="/login" component={LoginComponent}/>
+                      <AuthenticatedRoute path="/quizresults" exact component={QuizResults} />
                       <AuthenticatedRoute path="/main/" component={MainComponent}/>
                       <AuthenticatedRoute path="/quizs/:id" component={QuizBaseIdComponent}/>
                       <AuthenticatedRoute path="/quizs" component={QuizBaseComponent}/> 
