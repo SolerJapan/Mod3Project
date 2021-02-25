@@ -13,12 +13,13 @@ class HeaderComponent extends Component{
         return(
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div><a href="http://web.archive.org/web/20050209055847/http://babu.com/~dk-second/emp2/">Testing</a></div>
+                    <div><a href="https://www.aatj.org/jlpt-us">JLPT Testing</a></div>
                     <ul className="navbar-nav">
                        {isUserLoggedIn && <li><Link className="nav-link" to="/main/admin">Home</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/quizs">Quiz Database</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/quizmain">Take Quiz</Link></li>}
                         {!isUserLoggedIn &&<li><Link className="nav-link" to="/login">Login</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                     </ul>

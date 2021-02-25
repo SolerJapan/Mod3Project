@@ -10,7 +10,8 @@
   bottom: 0;
   width: 100%;
   height: 40px;
-  background-color: #ff0505;
+  background-color: #ff3b3b;
+  color: rgb(0, 0, 0);
 }
 
 
@@ -110,4 +111,56 @@ transition: all 250ms ease-in-out;
   margin-top: 3em;
 }
 
+.MainQuiz {
+  background-color: red;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  width: 80%;
+  margin: 0 auto 0 auto;
+  padding: 0px 10px;
+}
+
+.QTitle {
+  font-size: 40px;
+  margin-bottom: 30px;
+  line-height: 5;
+  text-align: center;
+}  
+
+.answers-container {
+  display: inline-block;
+  width: 50%;
+}
+
+.answer {
+  background-color: green;
+  border-radius: 1px;
+  color: white;
+  cursor: crosshair;
+  margin: 10 auto;
+  padding: 10px 10px;
+  transition: 0.3s linear all;
+  text-align: center;
+  width: 90%;
+}
+
+.answer:hover {
+  background-color: darken(blue, 20%);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto 0 auto;
+  padding: 10px 10px;
+  width: 0%;
+
+}
+
+.button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 10 auto;
   
+}
