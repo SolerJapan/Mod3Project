@@ -1,5 +1,12 @@
 # Mod3Project
 
+## Japanese Quiz to help with JLPT
+
+### Problem Statement 
+
+You dont commonly see any way to prcatice for the JLPT in an App. Usually this is done in books and CDs
+the idea in the end is to make an quiz app that can prepare one for the JLPT.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -11,7 +18,10 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
+
+This connects to the java portion is run which is run in [http://localhost:8081](http://localhost:8081)
+with the H2 database.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
