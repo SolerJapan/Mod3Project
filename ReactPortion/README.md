@@ -1,5 +1,124 @@
 # Mod3Project
 
+## Japanese Quiz to help with JLPT
+
+### Problem Statement 
+
+You dont commonly see any way to prcatice for the JLPT in an App. Usually this is done in books and CDs
+the idea in the end is to make an quiz app that can prepare one for the JLPT.
+
+# Java Side Quiz-web-service 
+
+## src/main/java Packages
+
+### com.quiz.rest.basic.auth  
+
+### SpringSecurityConfigurationBasicAuth
+
+The purpose is to create login securty via basic and is an extension of the WebSecurityConfigurerAdapter
+
+this calls the functions below in the class for the security 
+
+.csrf().disable()	
+		.authorizeRequests()
+		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+		.anyRequest().authenticated()
+		.and()		
+		.httpBasic(); 
+
+note basic isn't used but JWT is as this was originally used for testing the connection and strings.
+
+### com.quiz.rest.webservices.quizwebservice
+
+### BcryptEncoder
+
+this main application takes a string inside the encoder space and when run returns encoded
+string of the word in the space up to 10 different times. This is mainly used for encoding the 
+password.
+
+### QuizWebServiceApplication
+
+This runs the main spring application 
+
+### com.quiz.rest.webservices.quizwebservice.jwt 
+
+### JwtInMemoryUserDetailsService
+
+2 functions are used here and pertains to user details and login and has the user information stored such as 
+login and password in the first function inMemoryUserList
+The Second function loadUserByUsername searches among the first function for what was taken in such as username 
+and password and compares to make sure its a match as well as through the password encryption.
+
+### JwtTokenAuthorizationOncePerRequestFilter
+
+building up and using the information from JwtInMemoryUserDetailsService the functio doFilterInternal
+generates a user token to be used for the session. 
+
+### JwtTokenUtil
+
+Various functions are declareded here to be used with the token that was generated in JwtTokenAuthorizationOncePerRequestFilter
+which do shares calls amongst themselves for token functionality and security such as for expiration, refreshing, validation and 
+such as well as the user details stored within the token.
+
+### JwtUnAuthorizedResponseAuthenticationEntryPoint
+
+The function commence mainly will throw and exception and block entry if the token being used is invalid
+
+### JwtUserDetails
+
+the user details and password to be used is declared here as well as the getters and setters
+
+### JWTWebSecurityConfig
+
+holds various functions that are called from maven that configures the websecurity and also takes setting
+from application properties for the JSON Web Token
+
+### com.quiz.rest.webservices.quizwebservice.jwt.resource 
+
+### AuthenticationException
+
+has the authenticaion exception function with the message and cause
+
+### JwtAuthenticationRestController
+
+The controller which stores all the controllers and declarations for the authientication tokens and 
+responses with functions such as authenticate, handleAuthenticationException, 
+refreshAndGetAuthenticationToken, createAuthenticationToken, 
+
+### JwtTokenRequest
+
+class declarations with setters and getters for the token request with username and password
+
+### JWTWebSecurityConfig
+
+class declaration for the token response with only string
+
+### com.quiz.rest.webservices.quizwebservice.quiz
+
+### Quiz
+
+declaration for the contents of the quiz class which is also converted into the H2 database
+along with the setters and getters
+
+### QuizHardcodedService
+
+this contains hardcoded values meant to used as testing and was used with Basic. In the current form of the 
+application this is not used.
+
+### QuizJpaRepository
+
+calls an interface which extends the Jpa repository ands sets the function findByUsername with list value
+
+### QuizResource
+
+this contains all functions that will take the mapping strings from the react application and returns the information 
+requested. This case is only for Basic and as such this is not used as it was used for testing.
+
+### QuizJpaResource
+
+Essientially identical to QuizResource but this is more tuned to work with JPA or java persistance API and for this 
+application it is used/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -11,7 +130,10 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
+
+This connects to the java portion is run which is run in [http://localhost:8081](http://localhost:8081)
+with the H2 database.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
