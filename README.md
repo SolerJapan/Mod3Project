@@ -40,8 +40,50 @@ password.
 
 This runs the main spring application 
 
+### com.quiz.rest.webservices.quizwebservice.jwt 
 
+### JwtInMemoryUserDetailsService
 
+2 functions are used here and pertains to user details and login and has the user information stored such as 
+login and password in the first function inMemoryUserList
+The Second function loadUserByUsername searches among the first function for what was taken in such as username 
+and password and compares to make sure its a match as well as through the password encryption.
+
+### JwtTokenAuthorizationOncePerRequestFilter
+
+building up and using the information from JwtInMemoryUserDetailsService the functio doFilterInternal
+generates a user token to be used for the session. 
+
+### JwtTokenUtil
+
+Various functions are declareded here to be used with the token that was generated in JwtTokenAuthorizationOncePerRequestFilter
+which do shares calls amongst themselves for token functionality and security such as for expiration, refreshing, validation and 
+such as well as the user details stored within the token.
+
+### JwtUnAuthorizedResponseAuthenticationEntryPoint
+
+The function commence mainly will throw and exception and block entry if the token being used is invalid
+
+### JwtUserDetails
+
+the user details and password to be used is declared here as well as the getters and setters
+
+### JWTWebSecurityConfig
+
+holds various functions that are called from maven that configures the websecurity and also takes setting
+from application properties for the JSON Web Token
+
+### com.quiz.rest.webservices.quizwebservice.jwt.resource 
+
+### AuthenticationException
+
+has the authenticaion exception function with the message and cause
+
+### JWTWebSecurityConfig
+
+### JWTWebSecurityConfig
+
+### JWTWebSecurityConfig
 
 # Getting Started with Create React App
 
