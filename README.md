@@ -7,6 +7,42 @@
 You dont commonly see any way to prcatice for the JLPT in an App. Usually this is done in books and CDs
 the idea in the end is to make an quiz app that can prepare one for the JLPT.
 
+# Java Side Quiz-web-service 
+
+## src/main/java Packages
+
+### com.quiz.rest.basic.auth  
+
+### SpringSecurityConfigurationBasicAuth
+
+The purpose is to create login securty via basic and is an extension of the WebSecurityConfigurerAdapter
+
+this calls the functions below in the class for the security 
+
+.csrf().disable()	
+		.authorizeRequests()
+		.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+		.anyRequest().authenticated()
+		.and()		
+		.httpBasic(); 
+
+note basic isn't used but JWT is as this was originally used for testing the connection and strings.
+
+### com.quiz.rest.webservices.quizwebservice
+
+### BcryptEncoder
+
+this main application takes a string inside the encoder space and when run returns encoded
+string of the word in the space up to 10 different times. This is mainly used for encoding the 
+password.
+
+### QuizWebServiceApplication
+
+This runs the main spring application 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
