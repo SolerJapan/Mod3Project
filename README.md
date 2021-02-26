@@ -79,11 +79,45 @@ from application properties for the JSON Web Token
 
 has the authenticaion exception function with the message and cause
 
-### JWTWebSecurityConfig
+### JwtAuthenticationRestController
+
+The controller which stores all the controllers and declarations for the authientication tokens and 
+responses with functions such as authenticate, handleAuthenticationException, 
+refreshAndGetAuthenticationToken, createAuthenticationToken, 
+
+### JwtTokenRequest
+
+class declarations with setters and getters for the token request with username and password
 
 ### JWTWebSecurityConfig
 
-### JWTWebSecurityConfig
+class declaration for the token response with only string
+
+### com.quiz.rest.webservices.quizwebservice.quiz
+
+### Quiz
+
+declaration for the contents of the quiz class which is also converted into the H2 database
+along with the setters and getters
+
+### QuizHardcodedService
+
+this contains hardcoded values meant to used as testing and was used with Basic. In the current form of the 
+application this is not used.
+
+### QuizJpaRepository
+
+calls an interface which extends the Jpa repository ands sets the function findByUsername with list value
+
+### QuizResource
+
+this contains all functions that will take the mapping strings from the react application and returns the information 
+requested. This case is only for Basic and as such this is not used as it was used for testing.
+
+### QuizJpaResource
+
+Essientially identical to QuizResource but this is more tuned to work with JPA or java persistance API and for this 
+application it is used/
 
 # Getting Started with Create React App
 
