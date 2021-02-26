@@ -18,6 +18,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.quiz.rest.webservices.quizwebservice.quiz.Quiz;
 
+//Controller responsible for retrieving data via jpa 
+//between the database and frontend
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class QuizJpaResource {

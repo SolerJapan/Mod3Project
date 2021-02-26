@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
-
+//declaration of the quiz values with getters and setters
 @Entity
 public class Quiz {
 	

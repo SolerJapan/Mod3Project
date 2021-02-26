@@ -18,6 +18,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.quiz.rest.webservices.quizwebservice.quiz.Quiz;
 
+//controller for sending hardcoded data between here
+// and frontend via basic
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 
