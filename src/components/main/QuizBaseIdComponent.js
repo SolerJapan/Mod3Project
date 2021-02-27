@@ -29,6 +29,7 @@ class QuizBaseIdComponent extends Component{
         if (this.state.id === -1) {
             
         }
+        else{
         console.log('mounting questions')
         let username = AuthenticationService.getLoggedInUserName()
         console.log('mounting questions')
@@ -41,8 +42,9 @@ class QuizBaseIdComponent extends Component{
                 answer4: response.data.answer4,
                 answerC: response.data.answerC,
             }
-            
+          
             ))
+        }
             
     }
     //validates values for the question entries
