@@ -119,6 +119,46 @@ requested. This case is only for Basic and as such this is not used as it was us
 Essientially identical to QuizResource but this is more tuned to work with JPA or java persistance API and for this 
 application it is used/
 
+# React Side
+
+## Components and API 
+
+### Component AuthenticatedRoute
+
+This component is encased in the main QuizApp component. what this does is that theres check in state
+if the user is logged in the components encased in this component will become available and not accessable 
+outside if not logged in.
+
+### Component AuthenticationService
+
+this component uses axios to comunicate and various functions such executeBasicAuthenticationService,
+executeJwtAuthenticationService, createBasicAuthToken, registerSuccessfulLoginForJwt, createJWTToken,registerSuccessfulLogin
+,logout, isUserLoggedIn, getLoggedInUserName, setupAxiosInterceptors as to communicate with the backend/java app to 
+retriece token data and login data. This is also used to confirm the login data and add the information and token 
+data to the session storage as well as remove if necessary
+
+### Component ErrorComponent
+
+this component will only pop up if there address is taken to is invalid
+
+### Component FooterComponent
+
+this component is made to set the footer for the site
+
+### Component HeaderComponent
+
+this sets the header and has all the links to the other components at first the components will not show as one 
+is not logged in but once your logged in the other components will become available.
+
+### Component LogoutComponent
+
+this componet just when sent you are told youve been logged out reachable by the logout button
+
+### API QuizDataService
+
+This calls functions Such as retrieveAllQuizs,retrieveQuiz,deleteQuiz,updateQuiz,createQuiz
+which runs axios to retrieve,update,create or delete data in the database
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
