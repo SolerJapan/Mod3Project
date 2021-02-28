@@ -2,12 +2,20 @@
   text-align: center;
   background-image: url("./img/japanese-transparent.png");
   background-size: cover;
-  height: 100vh;
 }
 
+.QuizApp{
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 3.5rem;
+}
+
+
 .footer{
+  
   position: absolute;
   bottom: 0;
+ 
   width: 100%;
   height: 40px;
   background-color: #ff3b3b;

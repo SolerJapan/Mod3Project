@@ -34,10 +34,10 @@ class QuizApp extends Component{
 
                       <Route component={ErrorComponent}/>
                       </Switch>
-                      <FooterComponent></FooterComponent>
+                     
                     </>
                 </Router>
-
+                <FooterComponent></FooterComponent>
              {/* <LoginComponent></LoginComponent> */}
             </div>
         )
