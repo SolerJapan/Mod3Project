@@ -58,34 +58,23 @@ class QuizBaseIdComponent extends Component{
 
         // if(!values.Answer1){
         //     errors.Answer1 = 'Enter Answer1'
-        // } else if(values.Answer1.length<10){
-        //     errors.Answer1 = 'should have at least 10 characters'
         // }
         
         // if(!values.Answer2){
         //     errors.Answer2 = 'Enter Answer2'
-        // } else if(values.Answer2.length<10){
-        //     errors.Answer2 = 'should have at least 10 characters'
         // }
         
         // if(!values.Answer3){
         //     errors.Answer3 = 'Enter Answer3'
-        // } else if(values.Answer3.length<10){
-        //     errors.Answer3 = 'should have at least 10 characters'
         // }
 
         // if(!values.Answer4){
         //     errors.Answer4 = 'Enter Answer4'
-        // } else if(values.Answer4.length<10){
-        //     errors.Answer4 = 'should have at least 10 characters'
         // }
 
         // if(!values.AnswerC){
         //     errors.AnswerC = 'Enter the Correct Answer'
-        // } else if(values.AnswerC.length<10){
-        //     errors.AnswerC = 'should have at least 10 characters'
         // }
-
         console.log(values);
         return errors;
     }
@@ -119,7 +108,7 @@ class QuizBaseIdComponent extends Component{
 
     render(){
         let {question,answer1,answer2,answer3,answer4,answerC} = this.state
-        
+        let username = AuthenticationService.getLoggedInUserName()
 
         return (
                 <div>
@@ -180,7 +169,7 @@ class QuizBaseIdComponent extends Component{
                                             <label>answerC </label>
                                             <Field className="form-control" type="text" name="answerC"/>   
                                         </fieldset>  
-                                        <button className="btn btn-success" type="submit">Save</button>
+                                        { username == 'admin' && (<button className="btn btn-success" type="submit">Save</button>)}
                                     </Form>
                                 )
                             }

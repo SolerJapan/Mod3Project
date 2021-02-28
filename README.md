@@ -152,7 +152,52 @@ is not logged in but once your logged in the other components will become availa
 
 ### Component LogoutComponent
 
-this componet just when sent you are told youve been logged out reachable by the logout button
+this component just when sent you are told youve been logged out reachable by the logout button
+
+### Component LoginComponent
+
+This component handles the login to the application. What is done is that the application takes the username and 
+password input and then sends it to the backend via executeJwtAuthenticationService and if successful a successful 
+login is registered in state and the state for being logged in is changes and set 
+
+### Component MainComponent
+
+This component is the center component that is first seen once one logs in a main center page basically.
+
+### Component QuizApp
+
+This page registers the placements and locations of all the components in the application and has the switch and
+router that handles the movement inside the application
+
+### Component MainQuizComponent
+
+This is where the main quiz is run. The application calls the questions from the current database which is based on the admin who 
+is allowed to add or remove the questions from the database. The questions along with the answers are rendered and once an answer is clicked
+it will move on to the next on. when an answer is clicked the answer clicked is compared to the answer registered to check if 
+correct else its incorrect. This is done via various functions such as correctAnswer,wrongAnswer,endGame
+once all the questions have been cleared You will be moved to the QuizResults component. 
+
+
+### Component QuizBaseComponent
+
+This component retrieves data from the database and renders the information. What is rendered is the information in the
+database along with the update and delete buttons which both take the id in respect to the row and apply the function
+call to QuizDataService to either update or delete in the case of updating you would be taken to QuizBaseIdComponent 
+while delete would remove it. There is also an add button which will take you to QuizBaseIdComponent and would automatically
+append the new result to the database.
+
+### Component QuizBaseIdComponent
+
+A form based in formik is rendered here to to take in the information to be added into the database in the case of update 
+the information is already there and would take any changes. Once the form is submit the information that was submit would be
+reflected in the database in the case of a new entry its own id is assigned while for an current entry it uses the id from the 
+existing entry.
+
+### Component QuizResults
+
+this page takes the result information from the last page in the MainQuizComponent as it was run and takes the 
+final results such as score,number Of Questions,number Of Answered Questions,correct Answers,wrong Answers, and 
+renders and displays those results on screen with feedback.
 
 ### API QuizDataService
 

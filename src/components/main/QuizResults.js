@@ -22,8 +22,7 @@ class QuizResults extends Component {
                 numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
                 correctAnswers: state.correctAnswers,
                 wrongAnswers: state.wrongAnswers,
-                hintsUsed: state.hintsUsed,
-                fiftyFiftyUsed: state.fiftyFiftyUsed
+              
             });
         }
     }

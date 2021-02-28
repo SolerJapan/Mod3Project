@@ -8,13 +8,11 @@ class LoginComponent extends Component{
         super(props)
         this.state = {
             username: 'admin',
-            password: 'admin',
+            password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
         }
 
-         //this.handleUsernameChange = this.handleUsernameChange.bind(this)
-         //this.handlePasswordChange = this.handlePasswordChange.bind(this)
          this.handleChange = this.handleChange.bind(this)
          this.loginClicked = this.loginClicked.bind(this) 
     }
@@ -22,28 +20,9 @@ class LoginComponent extends Component{
     handleChange(event){
         this.setState({[event.target.name]:event.target.value})
     }
-
-    //  handleUsernameChange(event){
-    //      this.setState({[event.target.name]:event.target.value})
-    //  }
-    //  handlePasswordChange(event){
-    //      this.setState({password:event.target.value})
-    //  }
     
     loginClicked(){
-        // console.log(this.state)
-        // // login via hardcode
-        //  if(this.state.username==='admin' && this.state.password==='admin')
-        //  {
-        //      AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password );
-        //      this.props.history.push(`/main/${this.state.username}`)
-           
-        //  }
-        // else{
-        //     console.log('fail')
-        //     this.setState({showSuccessMessage:false})
-        //     this.setState({hasLoginFailed:true})
-        // }
+      
         //  //login via basic
         // 
         //  AuthenticationService

@@ -72,6 +72,9 @@ class QuizBaseComponent extends Component {
 
 
     render(){
+
+        let username = AuthenticationService.getLoggedInUserName()
+
         return <div>
              <h1>List Quiz</h1>
              {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
@@ -110,7 +113,7 @@ class QuizBaseComponent extends Component {
                     </tbody>
                 </table>  
                 <div className="row">
-                    <button className="btn btn-success" onClick={this.addQuizClicked}>Add</button>
+                { username == 'admin' &&(<button className="btn btn-success" onClick={this.addQuizClicked}>Add</button>)}
                 </div>
             </div>          
         </div> 
