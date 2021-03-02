@@ -1,4 +1,4 @@
-# Mod3Project AKA Capstone Project
+# Mod3Project
 
 ## Japanese Quiz to help with JLPT
 
