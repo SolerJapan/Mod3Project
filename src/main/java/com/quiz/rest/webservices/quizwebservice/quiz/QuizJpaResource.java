@@ -33,7 +33,7 @@ public class QuizJpaResource {
 	@GetMapping("/jpa/users/{username}/quizs")
 	public List<Quiz> getAllQuizs(@PathVariable String username){
 				
-		//username = "silversamurai"; 
+		//username = "silver"; 
 		System.out.println(username);
 		return quizJpaRepository.findByUsername(username);
 		//return todoService.findAll();
@@ -56,8 +56,8 @@ public class QuizJpaResource {
 		
 	}
 	
-	//Edit update a Todo
-	//PUT /users/{user_name}/todos/{todo_id}
+	//Edit update a quiz
+	//PUT /users/{user_name}/quiz/{quiz_id}
 	@PutMapping("/jpa/users/{username}/quizs/{id}")
 	public ResponseEntity<Quiz> updateQuiz(
 			@PathVariable String username,
@@ -70,8 +70,8 @@ public class QuizJpaResource {
 		return new ResponseEntity<Quiz>(quiz, HttpStatus.OK);
 	}
 	
-	//Create a new Todo
-	//POST /users/{user_name}/todos/
+	//Create a new quiz
+	//POST /users/{user_name}/quizs/
 	@PostMapping("/jpa/users/{username}/quizs")
 	public ResponseEntity<Quiz> createQuiz(
 			@PathVariable String username, @RequestBody Quiz quiz){
