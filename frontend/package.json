@@ -17,6 +17,8 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+   
+    "postinstall": "ng build"
     "start": "SET PORT=4200 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
