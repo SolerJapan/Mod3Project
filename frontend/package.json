@@ -18,7 +18,7 @@
   },
   "scripts": {
    
-    "postinstall": "ng build"
+    "postinstall": "ng build",
     "start": "SET PORT=4200 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
