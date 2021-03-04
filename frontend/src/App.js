@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-//import './App.css';
-//import './bootstrap.css';
+import './App.css';
+import './bootstrap.css';
 import QuizApp from './components/main/QuizApp';
 //import AboutPage from "./Pages/AboutPage";
 
