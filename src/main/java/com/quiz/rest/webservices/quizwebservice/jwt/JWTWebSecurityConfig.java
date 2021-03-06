@@ -69,7 +69,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 //            .frameOptions().sameOrigin()  //H2 Console Needs this setting
 //            .cacheControl(); //disable caching
 //    }
-//
+
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity
@@ -84,9 +84,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(
                 HttpMethod.GET,
                 "/" //Other Stuff You want to Ignore
-            )
-            .and()
-            .ignoring()
-            .antMatchers("/h2-console/**/**");//Should not be in Production!
+            );
+          
     }
 }
