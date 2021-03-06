@@ -52,23 +52,23 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-//    @Override
-//    protected void configure(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity
-//            .csrf().disable()
-//            .exceptionHandling().authenticationEntryPoint(jwtUnAuthorizedResponseAuthenticationEntryPoint).and()
-//            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//            .authorizeRequests()
-//            .anyRequest().authenticated();
-//
-//       httpSecurity
-//            .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-//        
-//        httpSecurity
-//            .headers()
-//            .frameOptions().sameOrigin()  //H2 Console Needs this setting
-//            .cacheControl(); //disable caching
-//    }
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity
+            .csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(jwtUnAuthorizedResponseAuthenticationEntryPoint).and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .authorizeRequests()
+            .anyRequest().authenticated();
+
+       httpSecurity
+            .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        
+        httpSecurity
+            .headers()
+            .frameOptions().sameOrigin()  //H2 Console Needs this setting
+            .cacheControl(); //disable caching
+    }
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
@@ -85,6 +85,8 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 HttpMethod.GET,
                 "/" //Other Stuff You want to Ignore
             );
-          
+//            .and()
+//            .ignoring()
+//            .antMatchers("/h2-console/**/**");//Should not be in Production!
     }
 }
