@@ -24,8 +24,7 @@ import com.quiz.rest.webservices.quizwebservice.quiz.Quiz;
 @RestController
 public class QuizJpaResource {
 
-	@Autowired
-	private QuizHardcodedService quizService;
+	
 	
 	@Autowired
 	private QuizJpaRepository quizJpaRepository;
